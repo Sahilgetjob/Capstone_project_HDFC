@@ -7,6 +7,10 @@ import com.hdfc.capstone.capstoneemployee.entity.Employee;
 @Component
 public class EmployeeMapper {
 
+	private EmployeeMapper(){
+		super();
+	}
+
 	public static EmployeeDto toDto(Employee employee) {
 		EmployeeDto employeeDto = new EmployeeDto();
 		

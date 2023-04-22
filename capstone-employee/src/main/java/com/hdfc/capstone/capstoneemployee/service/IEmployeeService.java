@@ -1,9 +1,9 @@
 package com.hdfc.capstone.capstoneemployee.service;
 
-import com.hdfc.capstone.capstoneemployee.dto.EmployeeDto;
+import com.hdfc.capstone.capstoneemployee.entity.Employee;
 
 public interface IEmployeeService {
 
-	EmployeeDto getEmployeeById(int employeeId);
+	Employee getEmployeeById(int employeeId);
 
 }

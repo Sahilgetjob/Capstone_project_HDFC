@@ -11,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.hdfc.capstone.capstoneemployee.dto.EmployeeDto;
 import com.hdfc.capstone.capstoneemployee.entity.Employee;
 import com.hdfc.capstone.capstoneemployee.repository.EmployeeRepository;
 import com.hdfc.capstone.capstoneemployee.service.EmployeeService;
@@ -34,11 +33,11 @@ public class EmployeeServiceTest {
 		 
 		when(employeeRepository.findById(2)).thenReturn(Optional.of(employee));
 		
-		EmployeeDto employeeDto = employeeService.getEmployeeById(2);
+		Employee employeeExpected = employeeService.getEmployeeById(2);
 		
-		 assertEquals(1, employeeDto.getEmployeeId());
-		 assertEquals("John Doe", employeeDto.getEmployeeName());
-		 assertEquals(LocalDate.of(1990, 1, 1), employeeDto.getDateOfBirth());
+		 assertEquals(1, employeeExpected.getEmployeeId());
+		 assertEquals("John Doe", employeeExpected.getEmployeeName());
+		 assertEquals(LocalDate.of(1990, 1, 1), employeeExpected.getDateOfBirth());
 	}
 	
 }
