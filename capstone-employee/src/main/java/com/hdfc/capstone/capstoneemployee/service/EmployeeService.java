@@ -10,12 +10,13 @@ import com.hdfc.capstone.capstoneemployee.exceptionhandler.InvalidEmployeeIDExce
 import com.hdfc.capstone.capstoneemployee.repository.EmployeeRepository;
 
 @Service
-public class EmployeeService {
+public class EmployeeService implements IEmployeeService{
 	
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Override
 	public EmployeeDto getEmployeeById(int employeeId) {
 		Employee employee = employeeRepository.findById(employeeId)
 											  .orElseThrow(() -> new InvalidEmployeeIDException("Employee ID is Invalid, Please enter valid employee ID"));
