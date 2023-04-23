@@ -18,9 +18,8 @@ public class ClientController{
     private static final String SERVICE_URL = "https://localhost:8443/api/v1/";
 
     @GetMapping("/webService/{employeeId}")
-    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable int employeeId) throws Exception{
+    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable int employeeId){
         
-    	ResponseEntity<EmployeeDto> response =  restTemplate.getForEntity(SERVICE_URL+employeeId, EmployeeDto.class);
-		return response;
+        return restTemplate.getForEntity(SERVICE_URL+employeeId, EmployeeDto.class);
     }
 }

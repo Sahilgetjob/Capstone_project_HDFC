@@ -12,10 +12,8 @@ public class EmployeeDto {
 
 	private int employeeId;
 	private String employeeName;
-	
 	private String dateOfBirth;
 
-	
 	
 	
 	//Decryption of DateOfBirth using AES-256 Algorithm
@@ -25,18 +23,15 @@ public class EmployeeDto {
 	
 	//Adding Bouncy Castle Security prrovider for encryption-decryption purposes
 	static {
-        Security.addProvider(new BouncyCastleProvider());
-    }
+		Security.addProvider(new BouncyCastleProvider());
+	}
 	
-	
-	public String getDateOfBirth() throws Exception{
+	public String getDateOfBirth()  throws Exception{
 		Cipher cipher = Cipher.getInstance(AES_CIPHER_TRANSFORMATION, "BC");
 		SecretKeySpec key = new SecretKeySpec(SECRET_KEY, AES_ALGORITHM);
-		
 		cipher.init(Cipher.DECRYPT_MODE, key);
-		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(this.dateOfBirth));
+		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(dateOfBirth));
 		return new String(decrypted);
-		
 	}
 	
 	
@@ -52,10 +47,10 @@ public class EmployeeDto {
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
+	
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
 	
 	
 	
