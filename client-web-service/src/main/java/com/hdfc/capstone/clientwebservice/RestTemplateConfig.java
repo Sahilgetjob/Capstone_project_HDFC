@@ -39,10 +39,7 @@ public class RestTemplateConfig {
 
 		HttpClient httpClient = HttpClients.custom().setSSLSocketFactory(sslConFactory).build();
 		HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-		RestTemplate restTemplate = new RestTemplate(requestFactory);
-
-
-		return restTemplate;
+		return new RestTemplate(requestFactory);
 		}
 	
 }
