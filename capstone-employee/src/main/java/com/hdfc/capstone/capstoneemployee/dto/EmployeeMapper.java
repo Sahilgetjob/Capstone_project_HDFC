@@ -11,7 +11,7 @@ public class EmployeeMapper {
 		super();
 	}
 
-	public static EmployeeDto toDto(Employee employee) {
+	public static EmployeeDto toDto(Employee employee) throws Exception {
 		EmployeeDto employeeDto = new EmployeeDto();
 		
 		employeeDto.setEmployeeId(employee.getEmployeeId());
@@ -21,7 +21,7 @@ public class EmployeeMapper {
 		return employeeDto;
 	}
 	
-	public static Employee toEntity(EmployeeDto employeeDto) {
+	public static Employee toEntity(EmployeeDto employeeDto) throws Exception {
 		Employee employee = new Employee();
 		
 		employee.setEmployeeId(employeeDto.getEmployeeId());

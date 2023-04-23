@@ -9,6 +9,16 @@
             "projectName": "capstone-employee",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClientWebServiceApplication<client-web-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.hdfc.capstone.clientwebservice.ClientWebServiceApplication",
+            "projectName": "client-web-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

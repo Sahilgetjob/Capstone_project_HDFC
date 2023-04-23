@@ -1,7 +1,5 @@
 package com.hdfc.capstone.capstoneemployee.entity;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +10,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee")
 public class Employee {
+	//I have not used lombok because this project has only one entity class
+	//Otherwise lombok would have been a good choice for creating getters and setter
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,10 @@ public class Employee {
 	@Column(nullable = false, length = 50, name = "employee_name")
 	private String employeeName;
 	
-	@Column(nullable = false, name = "date_of_birth")
-	private LocalDate dateOfBirth;
+	@Column(nullable = false, name = "date_of_birth", length = 10)
+	private String dateOfBirth;
 	
-	//I have not used lombok because this project has only one entity class
-	//Otherwise lombok would have been a good choice for creating getters and setter
+	
 	
 
 	public int getEmployeeId() {
@@ -44,14 +43,12 @@ public class Employee {
 		this.employeeName = employeeName;
 	}
 
-	public LocalDate getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
-
-	public void setDateOfBirth(LocalDate dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth){
 		this.dateOfBirth = dateOfBirth;
 	}
-	
-	
+
 	
 }

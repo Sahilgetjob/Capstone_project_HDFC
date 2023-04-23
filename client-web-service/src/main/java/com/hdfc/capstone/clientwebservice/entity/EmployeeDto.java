@@ -1,4 +1,4 @@
-package com.hdfc.capstone.capstoneemployee.dto;
+package com.hdfc.capstone.clientwebservice.entity;
 
 import java.security.Security;
 import java.util.Base64;
@@ -12,25 +12,31 @@ public class EmployeeDto {
 
 	private int employeeId;
 	private String employeeName;
+	
 	private String dateOfBirth;
 
 	
 	
-	//Encryption of DateOfBirth using AES-256 Algorithm
+	
+	//Decryption of DateOfBirth using AES-256 Algorithm
 	private static final String AES_ALGORITHM = "AES";
 	private static final String AES_CIPHER_TRANSFORMATION = "AES/ECB/PKCS7Padding";
 	private static final byte[] SECRET_KEY = "halosahil@123456".getBytes();
 	
 	//Adding Bouncy Castle Security prrovider for encryption-decryption purposes
 	static {
-		Security.addProvider(new BouncyCastleProvider());
-	}
-	public void setDateOfBirth(String dateOfBirth)  throws Exception{
+        Security.addProvider(new BouncyCastleProvider());
+    }
+	
+	
+	public String getDateOfBirth() throws Exception{
 		Cipher cipher = Cipher.getInstance(AES_CIPHER_TRANSFORMATION, "BC");
 		SecretKeySpec key = new SecretKeySpec(SECRET_KEY, AES_ALGORITHM);
-		cipher.init(Cipher.ENCRYPT_MODE, key);
-		byte[] encrypted = cipher.doFinal(dateOfBirth.getBytes());
-		this.dateOfBirth = Base64.getEncoder().encodeToString(encrypted);
+		
+		cipher.init(Cipher.DECRYPT_MODE, key);
+		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(this.dateOfBirth));
+		return new String(decrypted);
+		
 	}
 	
 	
@@ -46,10 +52,10 @@ public class EmployeeDto {
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
-	
-	public String getDateOfBirth() {
-		return dateOfBirth;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
+	
 	
 	
 	

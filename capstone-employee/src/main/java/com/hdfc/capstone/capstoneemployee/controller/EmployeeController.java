@@ -27,7 +27,7 @@ public class EmployeeController {
 	
 	
 	@GetMapping("/{employeeId}")
-	public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable int employeeId) {
+	public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable int employeeId) throws Exception {
 		logger.info("Getting employee details for employee id {}", employeeId );
 		Employee employee = employeeService.getEmployeeById(employeeId);
 		if(employee == null) {

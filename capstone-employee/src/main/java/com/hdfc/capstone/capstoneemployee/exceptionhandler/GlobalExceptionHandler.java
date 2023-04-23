@@ -30,9 +30,9 @@ public class GlobalExceptionHandler {
 		return new ErrorResponse(ex.getErrorCode(), ex.getMessage() );
 	}
 	
-	@ExceptionHandler(RuntimeException.class)
+	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	public ErrorResponse handleGlobalExceptions(RuntimeException ex) {
+	public ErrorResponse handleGlobalExceptions(Exception ex) {
 		logger.warn("Internal Server Error: {}", ex.getMessage());
 		return new ErrorResponse("500", "Internal Server Error");
 	}
