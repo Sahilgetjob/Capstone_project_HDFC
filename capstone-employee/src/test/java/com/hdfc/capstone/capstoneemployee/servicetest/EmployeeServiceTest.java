@@ -3,6 +3,7 @@ package com.hdfc.capstone.capstoneemployee.servicetest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ public class EmployeeServiceTest {
 		Employee employee = new Employee();
 		 employee.setEmployeeId(1);
 		 employee.setEmployeeName("John Doe");
-		 employee.setDateOfBirth("1990-04-22");
+		 employee.setDateOfBirth(LocalDate.of(1990, 01, 01));
 		 
 		
 		 
@@ -38,7 +39,7 @@ public class EmployeeServiceTest {
 		
 		 assertEquals(1, employeeExpected.getEmployeeId());
 		 assertEquals("John Doe", employeeExpected.getEmployeeName());
-		 assertEquals("1990-04-22", employeeExpected.getDateOfBirth());
+		 assertEquals(LocalDate.of(1990, 01, 01), employeeExpected.getDateOfBirth());
 	}
 	
 }

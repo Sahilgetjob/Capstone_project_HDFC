@@ -16,18 +16,9 @@ public class EmployeeMapper {
 		
 		employeeDto.setEmployeeId(employee.getEmployeeId());
 		employeeDto.setEmployeeName(employee.getEmployeeName());
-		employeeDto.setDateOfBirth(employee.getDateOfBirth());
+		employeeDto.setDateOfBirth(employee.getDateOfBirth().toString());
 		
 		return employeeDto;
 	}
 	
-	public static Employee toEntity(EmployeeDto employeeDto) throws Exception {
-		Employee employee = new Employee();
-		
-		employee.setEmployeeId(employeeDto.getEmployeeId());
-		employee.setEmployeeName(employeeDto.getEmployeeName());
-		employee.setDateOfBirth(employeeDto.getDateOfBirth());
-		
-		return employee;
-	}
 }

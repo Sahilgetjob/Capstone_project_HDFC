@@ -1,5 +1,7 @@
 package com.hdfc.capstone.capstoneemployee.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +23,8 @@ public class Employee {
 	@Column(nullable = false, length = 50, name = "employee_name")
 	private String employeeName;
 	
-	@Column(nullable = false, name = "date_of_birth", length = 10)
-	private String dateOfBirth;
+	@Column(nullable = false, name = "date_of_birth")
+	private LocalDate dateOfBirth;
 	
 	
 	
@@ -43,10 +45,10 @@ public class Employee {
 		this.employeeName = employeeName;
 	}
 
-	public String getDateOfBirth() {
+	public LocalDate  getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth){
+	public void setDateOfBirth(LocalDate dateOfBirth){
 		this.dateOfBirth = dateOfBirth;
 	}
 
