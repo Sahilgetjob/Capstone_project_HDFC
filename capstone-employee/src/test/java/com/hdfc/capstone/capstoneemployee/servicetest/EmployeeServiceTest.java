@@ -7,9 +7,11 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.domain.Specification;
 
 import com.hdfc.capstone.capstoneemployee.entity.Employee;
 import com.hdfc.capstone.capstoneemployee.repository.EmployeeRepository;
@@ -24,22 +26,24 @@ public class EmployeeServiceTest {
 	@InjectMocks
 	private EmployeeService employeeService;
 
+	
 	@Test
-	void EmployeeServiceGetByEmployeeIDTest() throws Exception {
+	void EmployeeServiceFindwithEmployeeIdTest() throws Exception {
 		Employee employee = new Employee();
-		 employee.setEmployeeId(1);
-		 employee.setEmployeeName("John Doe");
-		 employee.setDateOfBirth(LocalDate.of(1990, 01, 01));
-		 
+		int employeeId = 2;
+		employee.setEmployeeId(employeeId);
+		employee.setEmployeeName("Mark Hamill");
+		employee.setDateOfBirth(LocalDate.of(1986, 11, 12));
 		
-		 
-		when(employeeRepository.findById(2)).thenReturn(Optional.of(employee));
 		
-		Employee employeeExpected = employeeService.getEmployeeById(2);
 		
-		 assertEquals(1, employeeExpected.getEmployeeId());
-		 assertEquals("John Doe", employeeExpected.getEmployeeName());
-		 assertEquals(LocalDate.of(1990, 01, 01), employeeExpected.getDateOfBirth());
+		when(employeeRepository.findOne(ArgumentMatchers.<Specification<Employee>>any()))
+			.thenReturn(Optional.of (employee));
+		
+		Employee employeeExpected = employeeService.findWithEmployeeId(employeeId);
+		assertEquals(2, employeeExpected.getEmployeeId());
+		assertEquals("Mark Hamill", employeeExpected.getEmployeeName());
+		assertEquals(LocalDate.of(1986, 11, 12), employeeExpected.getDateOfBirth());
 	}
 	
 }

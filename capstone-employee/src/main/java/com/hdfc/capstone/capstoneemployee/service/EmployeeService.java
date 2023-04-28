@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.hdfc.capstone.capstoneemployee.entity.Employee;
 import com.hdfc.capstone.capstoneemployee.repository.EmployeeRepository;
+import com.hdfc.capstone.capstoneemployee.repository.EmployeeSpecification;
 
 @Service
 public class EmployeeService implements IEmployeeService{
@@ -14,9 +15,9 @@ public class EmployeeService implements IEmployeeService{
 	private EmployeeRepository employeeRepository;
 
 	@Override
-	public Employee getEmployeeById(int employeeId) {
-		
-		return employeeRepository.findById(employeeId).orElse(null);
+	public Employee findWithEmployeeId(int employeeId) {
+		Employee employee = employeeRepository.findOne(EmployeeSpecification.withEmployeeId(employeeId)).orElse(null);
+		return employee;
 	}
-
+	
 }
