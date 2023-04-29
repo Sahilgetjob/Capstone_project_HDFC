@@ -1,0 +1,4 @@
+#Capstone_project_HDFC folder contains the local server deployed webservice and client webservice project.
+#capstone-employee folder contains the devOps integrated webservice(Codechange -> Github -> JenkinsPipeline -> Docker build -> Docker Hub -> Kubernetes deployement)
+
+#As the capstone-employee folder contains a gradle project that is designed for running in the container environment, it will not run on local host, while Capstone_project_HDFC folder contains two local gradle projects -> capstone-employee and client-web-service, both these two can run on local host. Client represents the consumer of the webserivce.
