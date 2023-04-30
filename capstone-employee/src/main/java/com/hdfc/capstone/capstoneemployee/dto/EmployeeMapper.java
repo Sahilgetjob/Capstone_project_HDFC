@@ -14,7 +14,7 @@ public class EmployeeMapper {
 		super();
 	}
 
-	public static EmployeeDto toDto(Employee employee) throws Exception{
+	public static EmployeeDto toDto(Employee employee) throws Exception {
 		EmployeeDto employeeDto = new EmployeeDto();
 		
 		employeeDto.setEmployeeId(employee.getEmployeeId());
@@ -24,7 +24,7 @@ public class EmployeeMapper {
 		return employeeDto;
 	}
 	
-	public static List<EmployeeDto> toListDto(List<Employee> employees) throws Exception{
+	public static List<EmployeeDto> toListDto(List<Employee> employees) throws Exception  {
 		List<EmployeeDto> employeeDtos = new ArrayList<EmployeeDto>();
 		
 		for(Employee employee : employees) {

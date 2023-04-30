@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee")
 public class Employee {
+	
 	//I have not used lombok because this project has only one entity class
 	//Otherwise lombok would have been a good choice for creating getters and setter
 

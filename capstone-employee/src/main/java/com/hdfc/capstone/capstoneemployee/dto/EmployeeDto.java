@@ -1,9 +1,15 @@
 package com.hdfc.capstone.capstoneemployee.dto;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.Security;
 import java.util.Base64;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -25,7 +31,10 @@ public class EmployeeDto {
 	static {
 		Security.addProvider(new BouncyCastleProvider());
 	}
-	public void setDateOfBirth(String dateOfBirth)  throws Exception{
+	
+	public void setDateOfBirth(String dateOfBirth)  throws NoSuchAlgorithmException, NoSuchProviderException, 
+															NoSuchPaddingException, IllegalBlockSizeException,
+															BadPaddingException, InvalidKeyException  {
 		Cipher cipher = Cipher.getInstance(AES_CIPHER_TRANSFORMATION, "BC");
 		SecretKeySpec key = new SecretKeySpec(SECRET_KEY, AES_ALGORITHM);
 		cipher.init(Cipher.ENCRYPT_MODE, key);

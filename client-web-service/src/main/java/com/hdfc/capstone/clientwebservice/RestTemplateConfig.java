@@ -1,6 +1,11 @@
 package com.hdfc.capstone.clientwebservice;
 
+import java.io.IOException;
 import java.net.URL;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 
 import javax.net.ssl.SSLContext;
 
@@ -28,7 +33,8 @@ public class RestTemplateConfig {
 	
 	
 	@Bean
-	public RestTemplate restTemplate() throws Exception {
+	RestTemplate restTemplate() throws KeyManagementException, NoSuchAlgorithmException,
+												KeyStoreException, CertificateException, IOException  {
 		
 		URL trustStoreUrl = new URL("file:src/main/resources/keystore/identity.p12");
 		char[] trustStorePass = "halosahil@123456".toCharArray();

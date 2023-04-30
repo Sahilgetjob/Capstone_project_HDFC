@@ -18,7 +18,7 @@ import com.hdfc.capstone.capstoneemployee.repository.EmployeeRepository;
 import com.hdfc.capstone.capstoneemployee.service.EmployeeService;
 
 @SpringBootTest
-public class EmployeeServiceTest {
+class EmployeeServiceTest {
 	
 	@Mock
 	private EmployeeRepository employeeRepository;
