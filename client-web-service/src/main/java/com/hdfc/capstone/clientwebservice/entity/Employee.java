@@ -2,6 +2,7 @@ package com.hdfc.capstone.clientwebservice.entity;
 
 import java.time.LocalDate;
 
+//Adding Employee POJO class in client program to map EmployeeDto to Employee whenever necessary
 public class Employee {
 
 
@@ -10,10 +11,8 @@ public class Employee {
 	private String employeeName;
 	private LocalDate dateOfBirth;
 	
-	//I have not used lombok because this project has only one entity class
-	//Otherwise lombok would have been a good choice for creating getters and setter
-	
 
+	//Getters & Setters
 	public int getEmployeeId() {
 		return employeeId;
 	}

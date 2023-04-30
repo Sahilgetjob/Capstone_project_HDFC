@@ -29,6 +29,8 @@ class EmployeeServiceTest {
 	
 	@Test
 	void EmployeeServiceFindwithEmployeeIdTest() throws Exception {
+		
+		// Creating mock Employee object
 		Employee employee = new Employee();
 		int employeeId = 2;
 		employee.setEmployeeId(employeeId);
@@ -36,14 +38,17 @@ class EmployeeServiceTest {
 		employee.setDateOfBirth(LocalDate.of(1986, 11, 12));
 		
 		
-		
+		// Setting up the mock behavior for the findOne method of the mock repository
 		when(employeeRepository.findOne(ArgumentMatchers.<Specification<Employee>>any()))
 			.thenReturn(Optional.of (employee));
 		
-		Employee employeeExpected = employeeService.findWithEmployeeId(employeeId);
-		assertEquals(2, employeeExpected.getEmployeeId());
-		assertEquals("Mark Hamill", employeeExpected.getEmployeeName());
-		assertEquals(LocalDate.of(1986, 11, 12), employeeExpected.getDateOfBirth());
+		// Calling the findWithEmployeeId method of the service class
+		Employee SearchResult = employeeService.findWithEmployeeId(employeeId);
+		
+		//Asserting the results
+		assertEquals(2, SearchResult.getEmployeeId());
+		assertEquals("Mark Hamill", SearchResult.getEmployeeName());
+		assertEquals(LocalDate.of(1986, 11, 12), SearchResult.getDateOfBirth());
 	}
 	
 }

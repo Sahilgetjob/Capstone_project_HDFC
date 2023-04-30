@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
 		return new ErrorResponse("404", ex.getMessage());
 	}
 	
-	
+	//For handling Input mismactch exception
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorResponse handleMethodArgumentMismatchException(MethodArgumentTypeMismatchException ex) {
@@ -30,6 +30,7 @@ public class GlobalExceptionHandler {
 		return new ErrorResponse(ex.getErrorCode(), ex.getMessage() );
 	}
 	
+	//For handling any other internal exceptions
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleGlobalExceptions(Exception ex) {

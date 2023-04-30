@@ -1,5 +1,7 @@
 package com.hdfc.capstone.capstoneemployee.exceptionhandler;
 
+
+//helper class for streamlining error responses
 public class ErrorResponse {
 
 	private String errorCode;
