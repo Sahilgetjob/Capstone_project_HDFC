@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -25,10 +26,11 @@ class EmployeeServiceTest {
 
 	@InjectMocks
 	private EmployeeService employeeService;
-
+	
+	
 	
 	@Test
-	void EmployeeServiceFindwithEmployeeIdTest() throws Exception {
+	void EmployeeServiceFindwithEmployeeIdTestwithMock() throws Exception {
 		
 		// Creating mock Employee object
 		Employee employee = new Employee();
@@ -49,6 +51,29 @@ class EmployeeServiceTest {
 		assertEquals(2, SearchResult.getEmployeeId());
 		assertEquals("Mark Hamill", SearchResult.getEmployeeName());
 		assertEquals(LocalDate.of(1986, 11, 12), SearchResult.getDateOfBirth());
+	}
+	
+	
+	@Autowired
+	private EmployeeService employeeService1;
+	
+	@Test
+	void EmployeeServiceFindWithEmployeeIdTestwithData() throws Exception {
+		
+		//Creating Employee object
+		Employee employee = new Employee();
+		employee.setEmployeeId(1);
+		employee.setEmployeeName("John Doe");
+		employee.setDateOfBirth(LocalDate.of(1990, 01, 01));
+		
+		// Calling the findWithEmployeeId method of the service class
+		Employee result = employeeService1.findWithEmployeeId(1);
+		
+		//Asserting the results
+		assertEquals(employee.getEmployeeId(), result.getEmployeeId());
+		assertEquals(employee.getEmployeeName(), result.getEmployeeName());
+		assertEquals(employee.getDateOfBirth(), result.getDateOfBirth());
+		
 	}
 	
 }
