@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import com.hdfc.capstone.capstoneemployee.entity.Employee;
 
+//Mapper Class for mapping Employee to EmployeeDTO
+
 @Component
 public class EmployeeMapper {
 

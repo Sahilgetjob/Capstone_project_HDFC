@@ -9,12 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "employee")
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class Employee {
-	
-	//I have not used lombok because this project has only one entity class
-	//Otherwise lombok would have been a good choice for creating getters and setter
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,32 +31,6 @@ public class Employee {
 	
 	@Column(nullable = false, name = "date_of_birth")
 	private LocalDate dateOfBirth;
-	
-	
-	
-	//Getters & Setters
-	public int getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getEmployeeName() {
-		return employeeName;
-	}
-
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-
-	public LocalDate  getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(LocalDate dateOfBirth){
-		this.dateOfBirth = dateOfBirth;
-	}
 
 	
 }

@@ -27,7 +27,7 @@ public class EmployeeDto {
 	private static final String AES_CIPHER_TRANSFORMATION = "AES/ECB/PKCS7Padding";
 	private static final byte[] SECRET_KEY = "myverysecretpassword012345678901".getBytes();
 	
-	//Adding Bouncy Castle Security prrovider for encryption-decryption purposes
+	//Adding Bouncy Castle Security provider for encryption-decryption purposes
 	static {
 		Security.addProvider(new BouncyCastleProvider());
 	}
