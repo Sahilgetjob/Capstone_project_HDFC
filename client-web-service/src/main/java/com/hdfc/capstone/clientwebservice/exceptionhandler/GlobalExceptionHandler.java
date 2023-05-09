@@ -20,12 +20,12 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorResponse handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex) {
-		return new ErrorResponse(ex.getErrorCode(), ex.getMessage());
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.toString(), ex.getMessage());
 	}
 	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleGlobalExceptions(Exception ex) {
-		return new ErrorResponse("500", ex.getMessage());
+		return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.toString(), ex.getMessage());
 	}
 }

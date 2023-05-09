@@ -26,12 +26,13 @@ public class EmployeeController {
 	private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 	
 
+	//A single endpoint for accessing employee details using GET Http method
 	@GetMapping("/{employeeId}")
 	public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable int employeeId) throws Exception {
-		logger.info("Getting employee details for employee id {}", employeeId );
+		logger.info("Getting employee details for employee id: {}", employeeId );
 		Employee employee = employeeService.findWithEmployeeId(employeeId);
 		if(employee == null) {
-			String errorMessage = "Employee details not found for employee id "+ employeeId;
+			String errorMessage = "Employee details not found for employee id: "+ employeeId;
 			logger.warn(errorMessage);
 			throw new InvalidEmployeeIDException(errorMessage);
 		}

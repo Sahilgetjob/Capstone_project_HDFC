@@ -43,8 +43,4 @@
         <appender-ref ref="Console" />
     </logger>
 
-	<logger name="com.hdfc.capstone.capstoneemployee.exceptionhandler" level="info" additivity="false">
-		<appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
-	</logger>
 </configuration>
